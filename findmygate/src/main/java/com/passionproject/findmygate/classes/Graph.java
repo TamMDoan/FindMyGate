@@ -51,7 +51,7 @@ public final class Graph {
 
     // graph traversal will be in here
     // so that graphnodes won't be exposed
-    public static List<String> getShortestDistance(String s, String dest)
+    public static List<String> getShortestPath(String s, String dest)
     {
         // these two maps will be used in bfs to get
         // nodes + their parents as well as distance

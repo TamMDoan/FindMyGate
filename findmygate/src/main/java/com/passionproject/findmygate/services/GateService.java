@@ -15,13 +15,12 @@ public class GateService {
         System.out.println("Hello!");
     }
 
+    // TODO: Gates are stored in memory now... TBA Gates stored in database
     public List<String> getAdjacentGates(String gateName){
-        //return adjacentGateRepository.findAllByNameIs(gateName);
-        //return gateRepository.findGateByName(gateName).getAdjacentGates();
         return Graph.getAdjacentGates(gateName);
     }
 
     public List<String> getShortestPath(String startGate, String destGate){
-        return Graph.getShortestDistance(startGate, destGate);
+        return Graph.getShortestPath(startGate, destGate);
     }
 }
