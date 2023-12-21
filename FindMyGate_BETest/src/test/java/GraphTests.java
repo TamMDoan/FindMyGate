@@ -36,7 +36,24 @@ public class GraphTests {
     }
 
     @Test
-    public void testBFS(){
+    public void testGraphSimpleBFS(){
+        Graph graph = new Graph();
+        String gate = "A1";
+        String gate2 = "A2";
+        String gate3 = "A3";
+        graph.addGate(gate);
+        graph.addGate(gate2);
+        graph.addGate(gate3);
+        graph.addAdjacentGate(gate, gate2);
+        graph.addAdjacentGate(gate2, gate3);
+        Map<String, String> pred = new HashMap<>();
+        Map<String, Integer> dist = new HashMap<>();
+
+        Assert.assertTrue(graph.BFS(gate, gate3, pred, dist));
+    }
+
+    @Test
+    public void testNetBFS(){
         Graph graph = new Graph();
         String gate = "A1";
         String gate2 = "A2";
@@ -66,6 +83,11 @@ public class GraphTests {
         //graph.BFS(gate6, gate, pred, dist);
         Assert.assertTrue(graph.BFS(gate6, gate, pred,dist));
         graph.printShortestDistance(gate6, gate);
+    }
+
+    @Test
+    public void testDeadEndBFS(){
+
     }
 
 }
