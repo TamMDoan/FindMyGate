@@ -4,9 +4,10 @@ import com.passionproject.findmygate.entities.Gate;
 import com.passionproject.findmygate.services.GateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 public class GateController {
@@ -23,8 +24,13 @@ public class GateController {
         gateService.testPrint();
     }
 
-    @GetMapping("/gate")
-    public Gate getGate(@RequestParam(value = "gate") String gateName){
-        return gateService.getGate(gateName);
+    @GetMapping("/neighbors")
+    public List<String> getAdjacentGates(@RequestParam(value = "gate") String gateName){
+        return gateService.getAdjacentGates(gateName);
+    }
+
+    @GetMapping("/navigation")
+    public List<String> getShortestPath(@RequestParam(value = "startGate") String startGate, @RequestParam(value = "destGate") String destGate){
+        return gateService.getShortestPath(startGate, destGate);
     }
 }

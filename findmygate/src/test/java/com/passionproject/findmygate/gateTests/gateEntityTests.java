@@ -27,7 +27,7 @@ public class gateEntityTests {
     public void testGateFullConstructor(){
         String gateName = "A1";
         String terminal = "A";
-        List<String> adjacentGates = new ArrayList<>();
+        List<Gate> adjacentGates = new ArrayList<>();
         Gate gate = new Gate(gateName, terminal, adjacentGates);
 
         assertNotNull(gate);
@@ -48,8 +48,9 @@ public class gateEntityTests {
         String gateName = "A1";
         String terminal = "A";
         String gateNeighbor = "A2";
-        List<String> adjacentGates = new ArrayList<>();
-        adjacentGates.add(gateNeighbor);
+        Gate gateN = new Gate(gateNeighbor);
+        List<Gate> adjacentGates = new ArrayList<>();
+        adjacentGates.add(gateN);
         Gate gate = new Gate(gateName, terminal, adjacentGates);
 
         assertEquals(adjacentGates.size(), gate.getAdjacentGates().size());
