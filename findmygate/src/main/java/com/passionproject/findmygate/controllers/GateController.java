@@ -1,5 +1,6 @@
 package com.passionproject.findmygate.controllers;
 
+import com.passionproject.findmygate.entities.Gate;
 import com.passionproject.findmygate.services.GateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,5 +21,10 @@ public class GateController {
     @GetMapping("/path")
     public void getPathToGate(@RequestParam(value = "startGate") String startGate, @RequestParam(value = "destGate") String destGate){
         gateService.testPrint();
+    }
+
+    @GetMapping("/gate")
+    public Gate getGate(@RequestParam(value = "gate") String gateName){
+        return gateService.getGate(gateName);
     }
 }
