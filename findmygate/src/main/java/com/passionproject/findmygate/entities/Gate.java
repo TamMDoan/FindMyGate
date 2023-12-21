@@ -22,10 +22,12 @@ public class Gate {
 
     public Gate(String name){
         this.name = name;
+        this.adjacentGates = new ArrayList<>();
     }
 
-    public Gate(String name, List<String> adjacentGates){
+    public Gate(String name, String terminal, List<String> adjacentGates){
         this.name = name;
+        this.terminal = terminal;
         this.adjacentGates = adjacentGates;
     }
 
