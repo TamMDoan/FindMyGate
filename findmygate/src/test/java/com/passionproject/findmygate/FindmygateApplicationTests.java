@@ -1,4 +1,4 @@
-package com.personalproject.findmygate;
+package com.passionproject.findmygate;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
