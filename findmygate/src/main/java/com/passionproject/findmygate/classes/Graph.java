@@ -2,6 +2,10 @@ package com.passionproject.findmygate.classes;
 
 import java.util.*;
 
+/*
+ *
+ * Graph of the gates. Traversal is done within this class.
+ */
 public final class Graph {
     private static class GateNode {
 
@@ -24,10 +28,6 @@ public final class Graph {
     public Graph() {
         gates = new HashMap<>();
     }
-
-//    public Map<String, GateNode> getGates() {
-//        return Graph.gates;
-//    }
 
     public static void addGate(String gate) {
         GateNode newGate = new GateNode(gate);
