@@ -1,9 +1,7 @@
 package com.passionproject.findmygate.entities;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +11,22 @@ import java.util.List;
 
 public class Gate {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String name;
     private String terminal;
 
-    @ManyToMany(cascade =  { CascadeType.ALL })
+    /*
+    * REREAD THIS! LOTS OF GOOD INFO YOU CAN PROBABLY USE,
+    * ESPECIALLY WHEN YOU START ADDING POSITIONAL DATA
+    * https://www.baeldung.com/jpa-many-to-many
+     */
+    @ManyToMany
+    @JsonBackReference
     @JoinTable(
             name = "adjacentGates",
-            joinColumns = { @JoinColumn(name = "name")},
-            inverseJoinColumns = { @JoinColumn(name = "gateName")}
+            joinColumns = { @JoinColumn(name = "gate_id")},
+            inverseJoinColumns = { @JoinColumn(name = "adjacent_id")}
     )
     private List<Gate> adjacentGates;
 
@@ -39,6 +45,14 @@ public class Gate {
         this.name = name;
         this.terminal = terminal;
         this.adjacentGates = adjacentGates;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -65,5 +79,8 @@ public class Gate {
 
     public void setAdjacentGates(List<Gate> adjacentGates) {
         this.adjacentGates = adjacentGates;
+    }
+    public void addAdjacentGate(Gate gate){
+        this.adjacentGates.add(gate);
     }
 }
