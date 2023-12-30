@@ -1,0 +1,18 @@
+<form [formGroup] = 'gateForm' (ngSubmit)="onSubmit()">
+    <label for="start-gate">Start gate: </label>
+    <input id="start-gate" type="text" formControlName="startGate">
+
+    <label for="dest-gate">Destination gate: </label>
+    <input id="dest-gate" type="text" formControlName="destGate">
+
+    <button type="submit" [disabled]="!gateForm.valid">Submit</button>
+</form>
+
+<p>{{startGateMessage}}</p>
+<p>{{destGateMessage}}</p>
+
+<div>
+    <ul>
+        <li *ngFor="let gate of path">{{gate.name}}</li>
+    </ul>
+</div>
