@@ -1,5 +1,6 @@
 package com.passionproject.findmygate.controllers;
 
+import com.passionproject.findmygate.entities.AdjacentGate;
 import com.passionproject.findmygate.entities.Gate;
 import com.passionproject.findmygate.services.GateService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,10 @@ public class GateController {
     public Gate getGate(@RequestParam(value = "gate") String gate){
         return gateService.getGate(gate);
     }
+
     // Get list of adjacent gates as strings
     @GetMapping("/neighbors")
-    public List<Gate> getAdjacentGates(@RequestParam(value = "gate") String gateName){
+    public List<AdjacentGate> getAdjacentGates(@RequestParam(value = "gate") String gateName){
         return gateService.getAdjacentGates(gateName);
     }
 
