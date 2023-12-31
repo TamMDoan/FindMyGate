@@ -18,6 +18,8 @@ public class PositionKey implements Serializable{
         this.adjacentId = adjacentId;
     }
 
+    public PositionKey(){}
+
     public int getGateId() {
         return gateId;
     }
