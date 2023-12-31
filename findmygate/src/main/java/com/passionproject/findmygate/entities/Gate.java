@@ -8,10 +8,9 @@ import java.util.List;
 
 @Entity
 @Table(name="gate")
-
 public class Gate {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String terminal;
@@ -21,14 +20,8 @@ public class Gate {
     * ESPECIALLY WHEN YOU START ADDING POSITIONAL DATA
     * https://www.baeldung.com/jpa-many-to-many
      */
-    @ManyToMany
-    @JsonBackReference
-    @JoinTable(
-            name = "adjacentGates",
-            joinColumns = { @JoinColumn(name = "gate_id")},
-            inverseJoinColumns = { @JoinColumn(name = "adjacent_id")}
-    )
-    private List<Gate> adjacentGates;
+    @OneToMany(mappedBy = "gate")
+    private List<AdjacentGate> adjacentGates;
 
     public Gate(){
         this.name = "";
@@ -41,7 +34,7 @@ public class Gate {
         this.adjacentGates = new ArrayList<>();
     }
 
-    public Gate(String name, String terminal, List<Gate> adjacentGates){
+    public Gate(String name, String terminal, List<AdjacentGate> adjacentGates){
         this.name = name;
         this.terminal = terminal;
         this.adjacentGates = adjacentGates;
@@ -73,14 +66,14 @@ public class Gate {
 
     // TODO: figure out whether it's better to have getAdjacentGates here or if you
     // TODO: should use the repository to get adjacent gates
-    public List<Gate> getAdjacentGates() {
+    public List<AdjacentGate> getAdjacentGates() {
         return adjacentGates;
     }
 
-    public void setAdjacentGates(List<Gate> adjacentGates) {
+    public void setAdjacentGates(List<AdjacentGate> adjacentGates) {
         this.adjacentGates = adjacentGates;
     }
-    public void addAdjacentGate(Gate gate){
+    public void addAdjacentGate(AdjacentGate gate){
         this.adjacentGates.add(gate);
     }
 }

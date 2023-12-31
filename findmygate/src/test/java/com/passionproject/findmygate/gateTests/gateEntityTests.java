@@ -1,5 +1,6 @@
 package com.passionproject.findmygate.gateTests;
 
+import com.passionproject.findmygate.entities.AdjacentGate;
 import com.passionproject.findmygate.entities.Gate;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ public class gateEntityTests {
     public void testGateFullConstructor(){
         String gateName = "A1";
         String terminal = "A";
-        List<Gate> adjacentGates = new ArrayList<>();
+        List<AdjacentGate> adjacentGates = new ArrayList<>();
         Gate gate = new Gate(gateName, terminal, adjacentGates);
 
         assertNotNull(gate);
@@ -48,12 +49,12 @@ public class gateEntityTests {
         String gateName = "A1";
         String terminal = "A";
         String gateNeighbor = "A2";
-        Gate gateN = new Gate(gateNeighbor);
-        List<Gate> adjacentGates = new ArrayList<>();
+        AdjacentGate gateN = new AdjacentGate(new Gate(), new Gate(gateNeighbor), "Left");
+        List<AdjacentGate> adjacentGates = new ArrayList<>();
         adjacentGates.add(gateN);
         Gate gate = new Gate(gateName, terminal, adjacentGates);
 
         assertEquals(adjacentGates.size(), gate.getAdjacentGates().size());
-        assertEquals(adjacentGates, gate.getAdjacentGates());
+        assertEquals(adjacentGates, gate.getAdjacentGates().get(1).getName());
     }
 }
