@@ -19,8 +19,8 @@ public class GateGraphTests {
         GateGraph.addGate(gate);
         GateGraph.addGate(gate2);
         GateGraph.addGate(gate3);
-        GateGraph.addAdjacentGate(gate, gate2);
-        GateGraph.addAdjacentGate(gate2, gate3);
+//        GateGraph.addAdjacentGate(gate, gate2);
+//        GateGraph.addAdjacentGate(gate2, gate3);
 
         List<Gate> expected = new LinkedList<>();
         expected.add(gate);
@@ -47,14 +47,14 @@ public class GateGraphTests {
         GateGraph.addGate(gate5);
         GateGraph.addGate(gate6);
         GateGraph.addGate(gate7);
-        GateGraph.addAdjacentGate(gate1, gate2);
-        GateGraph.addAdjacentGate(gate1, gate7);
-        GateGraph.addAdjacentGate(gate1, gate3);
-        GateGraph.addAdjacentGate(gate2, gate3);
-        GateGraph.addAdjacentGate(gate3, gate5);
-        GateGraph.addAdjacentGate(gate4, gate5);
-        GateGraph.addAdjacentGate(gate4, gate7);
-        GateGraph.addAdjacentGate(gate5, gate6);
+//        GateGraph.addAdjacentGate(gate1, gate2);
+//        GateGraph.addAdjacentGate(gate1, gate7);
+//        GateGraph.addAdjacentGate(gate1, gate3);
+//        GateGraph.addAdjacentGate(gate2, gate3);
+//        GateGraph.addAdjacentGate(gate3, gate5);
+//        GateGraph.addAdjacentGate(gate4, gate5);
+//        GateGraph.addAdjacentGate(gate4, gate7);
+//        GateGraph.addAdjacentGate(gate5, gate6);
 
         List<Gate> expected = new LinkedList<>();
         expected.add(gate1);
