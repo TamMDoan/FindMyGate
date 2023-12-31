@@ -1,5 +1,6 @@
 package com.passionproject.findmygate.classes;
 
+import com.passionproject.findmygate.entities.AdjacentGate;
 import com.passionproject.findmygate.entities.Gate;
 
 import java.util.*;
@@ -43,7 +44,7 @@ public final class GateGraph {
         GateGraph.gates.put(gate.getName(), gate);
     }
 
-    public static void addAdjacentGate(Gate gate, Gate adjacentGate){
+    public static void addAdjacentGate(AdjacentGate gate, AdjacentGate adjacentGate){
         GateGraph.gates.get(gate.getName()).getAdjacentGates().add(adjacentGate);
         GateGraph.gates.get(adjacentGate.getName()).getAdjacentGates().add(gate);
     }
@@ -52,7 +53,7 @@ public final class GateGraph {
         return GateGraph.gates.size();
     }
 
-    public static List<Gate> getAdjacentGates(String gateName){
+    public static List<AdjacentGate> getAdjacentGates(String gateName){
         return GateGraph.gates.get(gateName).getAdjacentGates();
     }
 
@@ -132,7 +133,7 @@ public final class GateGraph {
             // take the next node in the queue
             Gate vertex = queue.remove();
             // pull up all it's adjacent nodes to go through them
-            for (Gate g : vertex.getAdjacentGates()) {
+            for (AdjacentGate g : vertex.getAdjacentGates()) {
                 // if we haven't visited this adjacent node yet
                 if (!visited.get(g.getName())) {
                     // add it to visited
@@ -140,15 +141,15 @@ public final class GateGraph {
 
                     // put the distance of this adjacent
                     // node from the src into a map
-                    dist.put(g, dist.get(vertex) + 1);
+                    dist.put(g.getGate(), dist.get(vertex) + 1);
 
                     // add adjacent node into pred map
                     // to keep track of it's predecessor
-                    pred.put(g, vertex);
+                    pred.put(g.getGate(), vertex);
 
                     // add the adjacent node into queue to
                     // look at it's adjacent nodes later
-                    queue.add(g);
+                    queue.add(g.getGate());
 
                     // stopping condition (when we find
                     // our destination)
