@@ -1,2 +1,4 @@
-package com.passionproject.findmygate.repository;public interface AdjacentGateRepository {
+package com.passionproject.findmygate.repository;
+
+public interface AdjacentGateRepository {
 }
