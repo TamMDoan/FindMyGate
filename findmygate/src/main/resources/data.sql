@@ -1,4 +1,25 @@
-
+--
+--INSERT INTO gate(id, name, terminal) VALUES(2, 'A2', 'A');
+--INSERT INTO gate(id, name, terminal) VALUES(3, 'A3', 'A');
+--INSERT INTO gate(id, name, terminal) VALUES(4, 'A4', 'A');
+--INSERT INTO gate(id, name, terminal) VALUES(5, 'A5', 'A');
+--INSERT INTO gate(id, name, terminal) VALUES(6, 'A6', 'A');
+--INSERT INTO gate(id, name, terminal) VALUES(7, 'A7', 'A');
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('left', 1, 2);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('right', 2, 1);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('left', 2, 3);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('right', 3, 2);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('left', 3, 4);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('right', 4, 3);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('left', 4, 5);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('right', 5, 4);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('left', 5, 6);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('right', 6, 5);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('left', 6, 7);
+--INSERT INTO adjacent_gate(position, adjacent_id, gate_id) VALUES('right', 7, 6);
+--INSERT INTO adjacent_gates(id, adjacent_id, gate_id) VALUES(13, 7, 8);
+--INSERT INTO adjacent_gates(id, adjacent_id, gate_id) VALUES(14, 8, 7);
+--INSERT INTO adjacent_gates(id, adjacent_id, gate_id) VALUES(15, 1, 2);
 --INSERT INTO adjacent_gates(gate_id, adjacent_id) VALUES(14, 15);
 --INSERT INTO adjacent_gates(gate_id, adjacent_id) VALUES(15, 14);
 --INSERT INTO adjacent_gates(gate_id, adjacent_id) VALUES(15, 16);
